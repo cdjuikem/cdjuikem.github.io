@@ -1,10 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Courses - Clotilde Djuikem</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    nav { background: #333; padding: 10px; }
+    nav a { color: white; margin: 0 10px; text-decoration: none; }
+    nav a.active { font-weight: bold; color: #ff4444; }
+    section { padding: 30px; max-width: 1000px; margin: auto; }
+    h1 { text-align: center; color: darkred; margin-bottom: 40px; }
+    h2 { margin-top: 30px; color: #444; border-bottom: 2px solid darkred; padding-bottom: 5px; }
+    ul { list-style: none; padding-left: 20px; }
+    ul li { margin: 8px 0; }
+    a { color: darkred; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .course-block { margin-bottom: 40px; }
+    footer { background: #333; color: white; text-align: center; padding: 15px; margin-top: 40px; }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
 <nav>
-  <a href="about.html">About</a>
+  <a href="index.html">Home</a>
+  <a href="about.html">Biography</a>
   <a href="teaching.html">Teaching</a>
   <a href="publications.html">Publications</a>
   <a href="conferences.html">Conferences</a>
-  <a href="courses.html">Courses</a>
-   <a href="videos.html">Vidéos</a>
-    <a href="software.html">Software</a>
-   <a href="contact.html">Contact</a>
+  <a href="courses.html" class="active">Courses</a>
+  <a href="outreach.html">Outreach</a>
+  <a href="videos.html">Vidéos</a>
+  <a href="software.html">Software</a>
+  <a href="contact.html">Contact</a>
 </nav>
+
+<section>
+  <h1>University & Training Courses</h1>
+
+  <!-- Section 1 -->
+  <h2>📘 Instructor</h2>
+
+  <div class="course-block">
+    <h3>MATH1700 – Calculus 2 (University of Manitoba, 2024)</h3>
+    <ul>
+      <li><a href="pdfs/calculus2_lecture1.pdf" target="_blank">Lecture 1 – Limits & Series</a></li>
+      <li><a href="pdfs/calculus2_lecture2.pdf" target="_blank">Lecture 2 – Integration Techniques</a></li>
+      <li><a href="pdfs/calculus2_exam.pdf" target="_blank">Practice Exam</a></li>
+    </ul>
+  </div>
+
+  <div class="course-block">
+    <h3>MATH1500 – Introduction to Calculus (University of Manitoba, 2024)</h3>
+    <ul>
+      <li><a href="pdfs/calculus1_lecture1.pdf" target="_blank">Lecture 1 – Functions</a></li>
+      <li><a href="pdfs/calculus1_lecture2.pdf" target="_blank">Lecture 2 – Derivatives</a></li>
+    </ul>
+  </div>
+
+  <div class="course-block">
+    <h3>Numerical Methods for Engineers (Polytech Nice, 2022–2023)</h3>
+    <ul>
+      <li><a href="pdfs/numerical_methods_intro.pdf" target="_blank">Lecture Notes</a></li>
+      <li><a href="pdfs/numerical_methods_exercises.pdf" target="_blank">Exercises</a></li>
+    </ul>
+  </div>
+
+  <div class="course-block">
+    <h3>Probability and Statistics (Institut Universitaire de la Côte, 2018–2019)</h3>
+    <ul>
+      <li><a href="pdfs/probability_notes.pdf" target="_blank">Course Notes</a></li>
+      <li><a href="pdfs/probability_exercises.pdf" target="_blank">Exercises</a></li>
+    </ul>
+  </div>
+
+  <!-- Section 2 -->
+  <h2>👩‍🏫 Teaching Assistant</h2>
+
+  <div class="course-block">
+    <h3>Université Côte d’Azur (France, 2020–2023)</h3>
+    <ul>
+      <li><a href="pdfs/stats_r.pdf" target="_blank">Statistics with R (Master)</a></li>
+      <li><a href="pdfs/stochastic_processes.pdf" target="_blank">Stochastic Processes for Engineers (Master)</a></li>
+      <li><a href="pdfs/modeling_intro.pdf" target="_blank">Introduction to Mathematical and Numerical Modeling (Bachelor)</a></li>
+      <li><a href="pdfs/algebra4.pdf" target="_blank">Algebra 4 – Bilinear & Quadratic Forms</a></li>
+    </ul>
+  </div>
+
+  <div class="course-block">
+    <h3>University of Douala (Cameroon, 2018)</h3>
+    <ul>
+      <li><a href="pdfs/scientific_computing.pdf" target="_blank">Scientific Computing</a></li>
+      <li><a href="pdfs/linear_programming.pdf" target="_blank">Linear Programming</a></li>
+    </ul>
+  </div>
+
+  <!-- Section 3 -->
+  <h2>🌍 Training Outside University</h2>
+
+  <div class="course-block">
+    <h3>OPENGRAD STAT ECO TOGO (2024–2025)</h3>
+    <ul>
+      <li><a href="pdfs/financial_engineering.pdf" target="_blank">Financial Engineering & Risk Management</a></li>
+    </ul>
+  </div>
+
+  <div class="course-block">
+    <h3>Capacity-Building Workshop (PCA–CEA–ONACC, Cameroon, 2021)</h3>
+    <ul>
+      <li><a href="pdfs/climate_modeling_guide.pdf" target="_blank">Methodological Guide on Climate Modeling</a></li>
+    </ul>
+  </div>
+
+</section>
+
+<footer>
+  <p>&copy; 2025 Clotilde Djuikem</p>
+</footer>
+
+</body>
+</html>
