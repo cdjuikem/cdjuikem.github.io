@@ -1,10 +1,107 @@
-<nav>
-  <a href="about.html">About</a>
-  <a href="teaching.html">Teaching</a>
-  <a href="publications.html">Publications</a>
-  <a href="conferences.html">Conferences</a>
-  <a href="courses.html">Courses</a>
-   <a href="videos.html">Vidéos</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Videos - Clotilde Djuikem</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .video-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+    .video iframe {
+      width: 100%;
+      height: 200px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+    .video iframe:hover {
+      transform: scale(1.05);
+    }
+    h2 {
+      margin-top: 40px;
+      color: darkred;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">Biography</a>
+    <a href="teaching.html">Teaching</a>
+    <a href="publications.html">Publications</a>
+    <a href="courses.html">Courses</a>
+    <a href="outreach.html">Outreach</a>
+    <a href="videos.html" class="active">Vidéos</a>
+    <a href="conferences.html">Conferences</a>
     <a href="software.html">Software</a>
-   <a href="contact.html">Contact</a>
-</nav>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <header class="page-header">
+    <h1>Videos & YouTube Content</h1>
+  </header>
+
+  <main class="content">
+
+    <!-- Featured -->
+    <h2>🌟 Featured Video</h2>
+    <div class="video">
+      <iframe src="https://www.youtube.com/embed/ID_DE_TA_VIDEO" 
+              title="Featured video" 
+              frameborder="0" 
+              allowfullscreen></iframe>
+    </div>
+
+    <!-- Courses -->
+    <h2>📚 University Courses</h2>
+    <p>Here you will find complete courses with playlists (Calculus, Analysis, Modeling, etc.).</p>
+    <div class="video-gallery">
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/videoseries?list=ID_PLAYLIST_CALCULUS1" 
+                title="Calculus 1" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/videoseries?list=ID_PLAYLIST_CALCULUS2" 
+                title="Calculus 2" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/videoseries?list=ID_PLAYLIST_MODELING" 
+                title="Mathematical Modeling" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- Outreach -->
+    <h2>🎥 Outreach & Popularization</h2>
+    <p>Selections from <strong>Tioh Academy</strong> YouTube channel (math in everyday life, EDIA talks, etc.).</p>
+    <div class="video-gallery">
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/ID_VIDEO1" 
+                title="Everyday Math" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/ID_VIDEO2" 
+                title="Math & Society" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/ID_VIDEO3" 
+                title="Women in STEM" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- Channel -->
+    <h2>📺 Full Channel</h2>
+    <p>Discover all videos directly on <a href="https://www.youtube.com/@tiohacademy/videos" target="_blank">Tioh Academy YouTube Channel</a>.</p>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Clotilde Djuikem</p>
+  </footer>
+</body>
+</html>
