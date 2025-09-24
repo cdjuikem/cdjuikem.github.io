@@ -7,6 +7,12 @@ body {
   line-height: 1.6;
 }
 
+main, section, .content {
+  max-width: 1200px;  /* ou 1000px au lieu de 800px */
+  margin: 0 auto;
+  padding: 20px;
+}
+
 nav {
   background: #b30000; /* rouge */
   padding: 12px;
@@ -24,11 +30,11 @@ nav a:hover {
   text-decoration: underline;
 }
 
-section {
+/*section {
   padding: 40px;
   max-width: 900px;
   margin: auto;
-}
+}*/
 
 h1, h2 {
   color: #b30000; /* titres en rouge */
