@@ -1,125 +1,857 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Conferences - Clotilde Djuikem</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
 
-  <!-- Navigation -->
-  <nav>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Conferences | Clotilde Djuikem</title>
+
+  <meta name="description" content="Conferences, workshops, seminars, and summer schools attended by Clotilde Djuikem, applied mathematics researcher.">
+
+  <meta name="author" content="Clotilde Djuikem">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://cdjuikem.github.io/conferences.html">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --main-red: #8B0000;
+      --dark-red: #4A0000;
+      --gold: #C9A227;
+      --soft-bg: #FFF9F3;
+      --white: #FFFFFF;
+      --text: #222222;
+      --muted: #555555;
+      --border: rgba(139, 0, 0, 0.16);
+      --gold-border: rgba(201, 162, 39, 0.45);
+      --shadow: 0 14px 34px rgba(74, 0, 0, 0.09);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body.conferences-page {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      line-height: 1.65;
+      background:
+        linear-gradient(90deg, rgba(139, 0, 0, 0.08) 0%, transparent 8%, transparent 92%, rgba(201, 162, 39, 0.14) 100%),
+        radial-gradient(circle at top left, rgba(139, 0, 0, 0.10), transparent 30%),
+        radial-gradient(circle at top right, rgba(201, 162, 39, 0.16), transparent 28%),
+        linear-gradient(135deg, #ffffff 0%, #FFF9F3 55%, #ffffff 100%);
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 18px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    }
+
+    nav a {
+      color: var(--dark-red);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.94rem;
+      padding: 8px 12px;
+      border-radius: 999px;
+      transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: var(--main-red);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .conf-hero {
+      position: relative;
+      max-width: 1100px;
+      margin: 46px auto 28px;
+      padding: 52px 34px;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--border);
+      border-left: 8px solid var(--gold);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .conf-hero::before {
+      content: "";
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      right: -75px;
+      top: -85px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201, 162, 39, 0.26), transparent 70%);
+      animation: floatOrb 7s ease-in-out infinite;
+    }
+
+    .conf-hero::after {
+      content: "";
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      left: -80px;
+      bottom: -90px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139, 0, 0, 0.16), transparent 70%);
+      animation: floatOrb 8s ease-in-out infinite reverse;
+    }
+
+    .conf-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+    }
+
+    .conf-kicker {
+      display: inline-block;
+      background: var(--soft-bg);
+      color: var(--main-red);
+      border: 1px solid var(--gold-border);
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 0.9rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .conf-hero h1 {
+      color: var(--dark-red);
+      font-size: clamp(2.3rem, 5.5vw, 4.5rem);
+      line-height: 1;
+      margin: 0;
+      letter-spacing: -0.04em;
+      animation: fadeUp 0.75s ease both;
+      animation-delay: 0.08s;
+    }
+
+    .conf-hero p {
+      color: #444444;
+      font-size: 1.04rem;
+      max-width: 820px;
+      margin: 20px 0 0;
+      animation: fadeUp 0.75s ease both;
+      animation-delay: 0.16s;
+    }
+
+    .conf-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 860px;
+      margin-top: 26px;
+      animation: fadeUp 0.75s ease both;
+      animation-delay: 0.24s;
+    }
+
+    .conf-stat {
+      background: #FFFFFF;
+      border: 1px solid var(--gold-border);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 8px 20px rgba(74, 0, 0, 0.06);
+    }
+
+    .conf-stat strong {
+      display: block;
+      color: var(--main-red);
+      font-size: 1.75rem;
+      line-height: 1;
+    }
+
+    .conf-stat span {
+      display: block;
+      color: var(--muted);
+      font-weight: 700;
+      margin-top: 7px;
+      font-size: 0.92rem;
+    }
+
+    .conf-main {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 22px 70px;
+    }
+
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 24px auto 34px;
+    }
+
+    .quick-links a {
+      border: 1px solid var(--gold-border);
+      background: #FFFFFF;
+      color: var(--main-red);
+      text-decoration: none;
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 800;
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .quick-links a:hover {
+      background: var(--main-red);
+      color: #FFFFFF;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 22px rgba(139, 0, 0, 0.18);
+    }
+
+    .category-section {
+      margin: 46px 0;
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .category-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .category-header {
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--border);
+      border-left: 8px solid var(--gold);
+      border-radius: 24px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .category-header h2 {
+      color: var(--dark-red);
+      font-size: clamp(1.7rem, 3vw, 2.35rem);
+      margin: 0;
+      line-height: 1.15;
+    }
+
+    .category-header h2::after {
+      content: "";
+      display: block;
+      width: 72px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 20px;
+      margin-top: 10px;
+    }
+
+    .category-header p {
+      color: var(--muted);
+      margin: 16px 0 0;
+      max-width: 780px;
+      font-size: 0.98rem;
+    }
+
+    .year-block {
+      display: grid;
+      grid-template-columns: 145px 1fr;
+      gap: 22px;
+      margin: 26px 0;
+    }
+
+    .year-label {
+      position: sticky;
+      top: 90px;
+      align-self: start;
+      background: var(--dark-red);
+      color: #FFFFFF;
+      border-radius: 22px;
+      padding: 20px 16px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--gold-border);
+    }
+
+    .year-label strong {
+      display: block;
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+
+    .year-label span {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: #F5E7B8;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .event-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 13px;
+    }
+
+    .event-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--gold);
+      border-radius: 18px;
+      padding: 17px 18px;
+      box-shadow: 0 8px 22px rgba(74, 0, 0, 0.07);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    }
+
+    .event-card:hover {
+      transform: translateY(-4px);
+      border-left-color: var(--main-red);
+      box-shadow: 0 14px 30px rgba(74, 0, 0, 0.13);
+    }
+
+    .event-topline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .event-tag,
+    .event-date,
+    .event-location {
+      display: inline-block;
+      background: var(--soft-bg);
+      color: var(--main-red);
+      border: 1px solid var(--gold-border);
+      border-radius: 999px;
+      padding: 4px 9px;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .event-location {
+      color: var(--dark-red);
+      background: #FFFFFF;
+    }
+
+    .event-card h3 {
+      color: var(--dark-red);
+      font-size: 1.03rem;
+      line-height: 1.35;
+      margin: 0 0 7px;
+    }
+
+    .event-card p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 0.94rem;
+    }
+
+    .event-card strong {
+      color: var(--dark-red);
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatOrb {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+      }
+
+      50% {
+        transform: translateY(18px) scale(1.08);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .conf-hero {
+        margin: 28px 14px;
+        padding: 36px 22px;
+      }
+
+      .conf-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .year-block {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .year-label {
+        position: relative;
+        top: 0;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .year-label strong {
+        font-size: 1.35rem;
+      }
+    }
+
+    @media (max-width: 560px) {
+      nav {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+      }
+
+      nav a {
+        white-space: nowrap;
+      }
+
+      .conf-main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .event-card {
+        padding: 15px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .category-section {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body class="conferences-page">
+
+  <nav aria-label="Main navigation">
     <a href="index.html">Home</a>
     <a href="about.html">Biography</a>
     <a href="teaching.html">Teaching</a>
     <a href="publications.html">Publications</a>
     <a href="courses.html">Courses</a>
     <a href="outreach.html">Outreach</a>
-    <a href="videos.html">Vidéos</a>
+    <a href="videos.html">Videos</a>
     <a href="conferences.html" class="active">Conferences</a>
+    <a href="software.html">Software</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <header class="page-header">
-    <h1>Conferences, Workshops & Schools</h1>
+  <header class="conf-hero">
+    <div class="conf-hero-content">
+      <span class="conf-kicker">Academic Events</span>
+
+      <h1>Conferences, Workshops & Schools</h1>
+
+      <p>
+        This page lists selected conferences, workshops, seminars, and summer schools attended by
+        <strong>Clotilde Djuikem</strong>. The activities include invited talks, contributed presentations,
+        interdisciplinary workshops, industrial mathematics programs, and advanced research schools.
+      </p>
+
+      <div class="conf-stats">
+        <div class="conf-stat">
+          <strong>7</strong>
+          <span>Conferences</span>
+        </div>
+
+        <div class="conf-stat">
+          <strong>5</strong>
+          <span>Workshops & seminars</span>
+        </div>
+
+        <div class="conf-stat">
+          <strong>4</strong>
+          <span>Summer schools</span>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <main class="content">
+  <main class="conf-main">
 
-    <!-- Conferences -->
-    <h2>Conferences</h2>
-    <ul>
-      <li><strong>The Third Joint SIAM/CAIMS Annual Meetings (AN25)</strong><br>
-        <em>28 Jul – 1 Aug 2025 | Montréal, Canada</em><br>
-        <strong>Talk:</strong> Modeling INHV emergence in a sea lice-infected fish population
-      </li>
+    <div class="quick-links" aria-label="Conference page sections">
+      <a href="#conferences">Conferences</a>
+      <a href="#workshops">Workshops & Seminars</a>
+      <a href="#schools">Summer Schools</a>
+    </div>
 
-      <li><strong>Society for Mathematical Biology Annual Meeting (SMB 2025)</strong><br>
-        <em>13–18 Jul 2025 | Edmonton, Canada</em><br>
-        <strong>Talk:</strong> Model the introduction and establishment of pathogens into resident fish
-      </li>
+    <section class="category-section" id="conferences">
+      <div class="category-header">
+        <h2>Conferences</h2>
+        <p>
+          Conference talks, plenary presentations, and contributed presentations in mathematical biology,
+          epidemiological modeling, control, and applied mathematics.
+        </p>
+      </div>
 
-      <li><strong>Femmes et mathématiques en interaction: 1st AFSA Conference</strong> (Plenary Speaker)<br>
-        <em>12 Jun 2025 | Université de Montréal, Canada</em><br>
-        <strong>Talk:</strong> Parcours, travaux, vulgarisation sur l’enseignement et applications des maths
-      </li>
+      <div class="year-block">
+        <div class="year-label">
+          <strong>2025</strong>
+          <span>Canada</span>
+        </div>
 
-      <li><strong>12th European Conference on Mathematical and Theoretical Biology (ECMTB 2024)</strong><br>
-        <em>22–26 Jul 2024 | Toledo, Spain</em><br>
-        <strong>Talk:</strong> Modelling inter-species pathogen transmission in an aquatic environment using CTMC
-      </li>
+        <div class="event-list">
 
-      <li><strong>Computational and Mathematical Population Dynamics 6 (CMPD6)</strong><br>
-        <em>23–27 May 2023 | Winnipeg, Canada</em><br>
-        <strong>Talk:</strong> Impulsive modelling of rust dynamics and predator releases
-      </li>
+          <article class="event-card">
+            <div class="event-topline">
+              <span class="event-tag">Conference talk</span>
+              <span class="event-date">28 Jul – 1 Aug 2025</span>
+              <span class="event-location">Montréal, Canada</span>
+            </div>
+            <h3>The Third Joint SIAM/CAIMS Annual Meetings (AN25)</h3>
+            <p><strong>Talk:</strong> Modeling INHV emergence in a sea lice-infected fish population.</p>
+          </article>
 
-      <li><strong>12th European Conference on Mathematical and Theoretical Biology (ECMTB 2022)</strong><br>
-        <em>19–23 Sep 2022 | Heidelberg, Germany</em><br>
-        <strong>Talk:</strong> Bifurcation analysis in a coffee leaf rust epidemiological model
-      </li>
+          <article class="event-card">
+            <div class="event-topline">
+              <span class="event-tag">Conference talk</span>
+              <span class="event-date">13–18 Jul 2025</span>
+              <span class="event-location">Edmonton, Canada</span>
+            </div>
+            <h3>Society for Mathematical Biology Annual Meeting (SMB 2025)</h3>
+            <p><strong>Talk:</strong> Model the introduction and establishment of pathogens into resident fish.</p>
+          </article>
 
-      <li><strong>International Conference on Mathematical Methods and Models in Biosciences (BIOMATH 2019)</strong><br>
-        <em>16–22 Jun 2019 | Bedlewo, Poland</em><br>
-        <strong>Talk:</strong> Modelling and controlling fungus <em>Hemileia vastatrix</em>, a coffee pest
-      </li>
-    </ul>
+          <article class="event-card">
+            <div class="event-topline">
+              <span class="event-tag">Plenary speaker</span>
+              <span class="event-date">12 Jun 2025</span>
+              <span class="event-location">Université de Montréal, Canada</span>
+            </div>
+            <h3>Femmes et mathématiques en interaction: 1st AFSA Conference</h3>
+            <p><strong>Talk:</strong> Parcours, travaux, vulgarisation sur l’enseignement et applications des maths.</p>
+          </article>
 
-    <!-- Workshops -->
-    <h2>Workshops & Seminars</h2>
-    <ul>
-      <li><strong>Math to Power Industry (M2PI 2024)</strong><br>
-        <em>4–25 Jun 2024 | University of Calgary, Canada</em><br>
-        <strong>Project:</strong> Web scraping evaluation strategies with Nautical Crime Investigation Services
-      </li>
+        </div>
+      </div>
 
-      <li><strong>MOCAM Seminar Series</strong><br>
-        <em>17 Apr 2024 | University of the Witwatersrand, South Africa | Virtual</em><br>
-        <strong>Talk:</strong> Modelling inter-species pathogen transmission in an aquatic environment using CTMC
-      </li>
+      <div class="year-block">
+        <div class="year-label">
+          <strong>2024</strong>
+          <span>Spain</span>
+        </div>
 
-      <li><strong>EPITAG Workshop (MMAT 2023)</strong><br>
-        <em>1–4 Nov 2023 | University of Dschang, Cameroon | Online</em><br>
-        <strong>Talk:</strong> Modelling inter-species pathogen transmission with CTMC
-      </li>
+        <div class="event-list">
+          <article class="event-card">
+            <div class="event-topline">
+              <span class="event-tag">Conference talk</span>
+              <span class="event-date">22–26 Jul 2024</span>
+              <span class="event-location">Toledo, Spain</span>
+            </div>
+            <h3>12th European Conference on Mathematical and Theoretical Biology (ECMTB 2024)</h3>
+            <p><strong>Talk:</strong> Modelling inter-species pathogen transmission in an aquatic environment using CTMC.</p>
+          </article>
+        </div>
+      </div>
 
-      <li><strong>MSGI – AI & Companies Week</strong><br>
-        <em>22–26 Nov 2021 | Polytech, Université Côte d’Azur, France</em><br>
-        <strong>Project:</strong> Physics Informed Neural Networks (PINN) for PDEs solving
-      </li>
+      <div class="year-block">
+        <div class="year-label">
+          <strong>2023</strong>
+          <span>Canada</span>
+        </div>
 
-      <li><strong>MOMI – The World of Industrial Mathematics</strong><br>
-        <em>9–10 Mar 2020 | Inria, Nice, France</em>
-      </li>
-    </ul>
+        <div class="event-list">
+          <article class="event-card">
+            <div class="event-topline">
+              <span class="event-tag">Conference talk</span>
+              <span class="event-date">23–27 May 2023</span>
+              <span class="event-location">Winnipeg, Canada</span>
+            </div>
+            <h3>Computational and Mathematical Population Dynamics 6 (CMPD6)</h3>
+            <p><strong>Talk:</strong> Impulsive modelling of rust dynamics and predator releases.</p>
+          </article>
+        </div>
+      </div>
 
-    <!-- Summer Schools -->
-    <h2>Summer Schools</h2>
-    <ul>
-      <li><strong>The 3MC – PIMS – IDMS – ICMS Summer School</strong><br>
-        <em>16–27 Jun 2025 | Winnipeg, Canada</em>
-      </li>
+      <div class="year-block">
+        <div class="year-label">
+          <strong>2022</strong>
+          <span>Germany</span>
+        </div>
 
-      <li><strong>Helsinki Summer School on Mathematical Ecology and Evolution</strong><br>
-        <em>21–28 Aug 2022 | Turku, Finland</em><br>
-        <strong>Grant awarded</strong>
-      </li>
+        <div class="event-list">
+          <article class="event-card">
+            <div class="event-topline">
+              <span class="event-tag">Conference talk</span>
+              <span class="event-date">19–23 Sep 2022</span>
+              <span class="event-location">Heidelberg, Germany</span>
+            </div>
+            <h3>12th European Conference on Mathematical and Theoretical Biology (ECMTB 2022)</h3>
+            <p><strong>Talk:</strong> Bifurcation analysis in a coffee leaf rust epidemiological model.</p>
+          </article>
+        </div>
+      </div>
 
-      <li><strong>International Graduate School on Control (IGSC)</strong><br>
-        <em>13–17 May 2019 | L’Aquila, Italy</em><br>
-        <strong>Topic:</strong> Hybrid Control Design
-      </li>
+      <div class="year-block">
+        <div class="year-label">
+          <strong>2019</strong>
+          <span>Poland</span>
+        </div>
 
-      <li><strong>CIMPA-CETIC Research School on Mathematical Modelling in Life Sciences</strong><br>
-        <em>19–30 Sep 2016 | Yaoundé, Cameroon</em><br>
-        <strong>Grant awarded</strong>
-      </li>
-    </ul>
+        <div class="event-list">
+          <article class="event-card">
+            <div class="event-topline">
+              <span class="event-tag">Conference talk</span>
+              <span class="event-date">16–22 Jun 2019</span>
+              <span class="event-location">Bedlewo, Poland</span>
+            </div>
+            <h3>International Conference on Mathematical Methods and Models in Biosciences (BIOMATH 2019)</h3>
+            <p><strong>Talk:</strong> Modelling and controlling fungus <em>Hemileia vastatrix</em>, a coffee pest.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="category-section" id="workshops">
+      <div class="category-header">
+        <h2>Workshops & Seminars</h2>
+        <p>
+          Selected workshops, seminars, industrial mathematics programs, and interdisciplinary training events.
+        </p>
+      </div>
+
+      <div class="year-block">
+        <div class="year-label">
+          <strong>2024</strong>
+          <span>Workshops</span>
+        </div>
+
+        <div class="event-list">
+
+          <article class="event-card">
+            <div class="event-topline">
+              <span class="event-tag">Industrial mathematics</span>
+              <span class="event-date">4–25 Jun 2024</span>
+              <span class="event-location">University of Calgary, Canada</span>
+            </div>
+            <h3>Math to Power Industry (M2PI 2024)</h3>
+            <p><strong>Project:</strong> Web scraping evaluation strategies with Nautical Crime Investigation Services.</p>
+          </article>
+
+          <article class="event-card">
+            <div class="event-topline">
+              <span class="event-tag">Seminar</span>
+              <span class="event-date">17 Apr 2024</span>
+              <span class="event-location">Virtual · South Africa</span>
+            </div>
+            <h3>MOCAM Seminar Series</h3>
+            <p><strong>Talk:</strong> Modelling inter-species pathogen transmission in an aquatic environment using CTMC.</p>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="year-block">
+        <div class="year-label">
+          <strong>2023</strong>
+          <span>Seminar</span>
+        </div>
+
+        <div class="event-list">
+          <article class="event-card">
+            <div class="event-topline">
+              <span class="event-tag">Workshop talk</span>
+              <span class="event-date">1–4 Nov 2023</span>
+              <span class="event-location">Online · Cameroon</span>
+            </div>
+            <h3>EPITAG Workshop (MMAT 2023)</h3>
+            <p><strong>Talk:</strong> Modelling inter-species pathogen transmission with CTMC.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="year-block">
+        <div class="year-label">
+          <strong>2021</strong>
+          <span>AI</span>
+        </div>
+
+        <div class="event-list">
+          <article class="event-card">
+            <div class="event-topline">
+              <span class="event-tag">AI & companies</span>
+              <span class="event-date">22–26 Nov 2021</span>
+              <span class="event-location">Université Côte d’Azur, France</span>
+            </div>
+            <h3>MSGI – AI & Companies Week</h3>
+            <p><strong>Project:</strong> Physics Informed Neural Networks (PINN) for PDEs solving.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="year-block">
+        <div class="year-label">
+          <strong>2020</strong>
+          <span>Industry</span>
+        </div>
+
+        <div class="event-list">
+          <article class="event-card">
+            <div class="event-topline">
+              <span class="event-tag">Industrial mathematics</span>
+              <span class="event-date">9–10 Mar 2020</span>
+              <span class="event-location">Inria, Nice, France</span>
+            </div>
+            <h3>MOMI – The World of Industrial Mathematics</h3>
+            <p>Workshop on industrial mathematics and applied problem solving.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="category-section" id="schools">
+      <div class="category-header">
+        <h2>Summer Schools</h2>
+        <p>
+          Advanced schools and training programs in mathematical biology, ecology, evolution, control, and life sciences modeling.
+        </p>
+      </div>
+
+      <div class="year-block">
+        <div class="year-label">
+          <strong>2025</strong>
+          <span>Canada</span>
+        </div>
+
+        <div class="event-list">
+          <article class="event-card">
+            <div class="event-topline">
+              <span class="event-tag">Summer school</span>
+              <span class="event-date">16–27 Jun 2025</span>
+              <span class="event-location">Winnipeg, Canada</span>
+            </div>
+            <h3>The 3MC – PIMS – IDMS – ICMS Summer School</h3>
+            <p>Advanced summer school in mathematical and computational sciences.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="year-block">
+        <div class="year-label">
+          <strong>2022</strong>
+          <span>Finland</span>
+        </div>
+
+        <div class="event-list">
+          <article class="event-card">
+            <div class="event-topline">
+              <span class="event-tag">Summer school</span>
+              <span class="event-date">21–28 Aug 2022</span>
+              <span class="event-location">Turku, Finland</span>
+            </div>
+            <h3>Helsinki Summer School on Mathematical Ecology and Evolution</h3>
+            <p><strong>Grant awarded.</strong></p>
+          </article>
+        </div>
+      </div>
+
+      <div class="year-block">
+        <div class="year-label">
+          <strong>2019</strong>
+          <span>Italy</span>
+        </div>
+
+        <div class="event-list">
+          <article class="event-card">
+            <div class="event-topline">
+              <span class="event-tag">Graduate school</span>
+              <span class="event-date">13–17 May 2019</span>
+              <span class="event-location">L’Aquila, Italy</span>
+            </div>
+            <h3>International Graduate School on Control (IGSC)</h3>
+            <p><strong>Topic:</strong> Hybrid Control Design.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="year-block">
+        <div class="year-label">
+          <strong>2016</strong>
+          <span>Cameroon</span>
+        </div>
+
+        <div class="event-list">
+          <article class="event-card">
+            <div class="event-topline">
+              <span class="event-tag">Research school</span>
+              <span class="event-date">19–30 Sep 2016</span>
+              <span class="event-location">Yaoundé, Cameroon</span>
+            </div>
+            <h3>CIMPA-CETIC Research School on Mathematical Modelling in Life Sciences</h3>
+            <p><strong>Grant awarded.</strong></p>
+          </article>
+        </div>
+      </div>
+    </section>
 
   </main>
 
   <footer>
-    <p>&copy; 2025 Clotilde Djuikem</p>
+    <p>&copy; 2026 Clotilde Djuikem · Conferences, workshops, and schools</p>
   </footer>
+
+  <script>
+    const sections = document.querySelectorAll(".category-section");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      threshold: 0.12
+    });
+
+    sections.forEach((section) => observer.observe(section));
+  </script>
+
 </body>
 </html>
