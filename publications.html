@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,10 +8,9 @@
 
   <title>Publications | Clotilde Djuikem</title>
 
-  <meta name="description" content="Publications, preprints, and articles in preparation by Clotilde Djuikem, applied mathematics researcher.">
+  <meta name="description" content="Peer-reviewed publications, preprints, manuscripts under evaluation, and articles in preparation by Clotilde Djuikem, applied mathematics researcher.">
 
   <meta name="author" content="Clotilde Djuikem">
-
   <meta name="robots" content="index, follow">
 
   <link rel="canonical" href="https://cdjuikem.github.io/publications.html">
@@ -198,7 +198,7 @@
       padding: 0 22px 70px;
     }
 
-    .pub-filter {
+    .quick-links {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -206,39 +206,76 @@
       margin: 24px auto 34px;
     }
 
-    .filter-btn {
+    .quick-links a {
       border: 1px solid var(--gold-border);
       background: #FFFFFF;
       color: var(--main-red);
+      text-decoration: none;
       padding: 9px 14px;
       border-radius: 999px;
       font-size: 0.9rem;
       font-weight: 800;
-      cursor: pointer;
       transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .filter-btn:hover,
-    .filter-btn.active {
+    .quick-links a:hover {
       background: var(--main-red);
       color: #FFFFFF;
       transform: translateY(-3px);
       box-shadow: 0 10px 22px rgba(139, 0, 0, 0.18);
     }
 
-    .year-block {
-      display: grid;
-      grid-template-columns: 145px 1fr;
-      gap: 22px;
-      margin: 30px 0;
+    .category-section {
+      margin: 46px 0;
       opacity: 0;
       transform: translateY(22px);
       transition: opacity 0.65s ease, transform 0.65s ease;
     }
 
-    .year-block.visible {
+    .category-section.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    .category-header {
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--border);
+      border-left: 8px solid var(--gold);
+      border-radius: 24px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .category-header h2 {
+      color: var(--dark-red);
+      font-size: clamp(1.7rem, 3vw, 2.35rem);
+      margin: 0;
+      line-height: 1.15;
+    }
+
+    .category-header h2::after {
+      content: "";
+      display: block;
+      width: 72px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 20px;
+      margin-top: 10px;
+    }
+
+    .category-header p {
+      color: var(--muted);
+      margin: 16px 0 0;
+      max-width: 780px;
+      font-size: 0.98rem;
+    }
+
+    .year-block {
+      display: grid;
+      grid-template-columns: 145px 1fr;
+      gap: 22px;
+      margin: 26px 0;
     }
 
     .year-label {
@@ -373,12 +410,21 @@
       color: var(--dark-red) !important;
     }
 
-    .preparation-list {
+    .preparation-grid {
+      display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
     }
 
-    .hidden {
-      display: none !important;
+    .in-progress-label {
+      background: var(--dark-red);
+      color: #FFFFFF;
+      border-radius: 18px;
+      padding: 14px 16px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      display: inline-block;
+      border: 1px solid var(--gold-border);
     }
 
     @keyframes fadeUp {
@@ -431,7 +477,7 @@
         font-size: 1.4rem;
       }
 
-      .preparation-list {
+      .preparation-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -465,7 +511,7 @@
         transition: none !important;
       }
 
-      .year-block {
+      .category-section {
         opacity: 1;
         transform: none;
       }
@@ -494,10 +540,8 @@
     <h1>Publications</h1>
 
     <p>
-      This page presents peer-reviewed publications, preprints, manuscripts under evaluation,
-      and ongoing works by <strong>Clotilde Djuikem</strong>. The works focus on mathematical modeling,
-      dynamical systems, infectious disease dynamics, optimal control, stochastic models, and applications
-      to biological and environmental systems.
+      This page presents the research outputs of <strong>Clotilde Djuikem</strong>, organized into three separate categories:
+      peer-reviewed publications, preprints and manuscripts under evaluation, and articles in preparation.
     </p>
 
     <div class="pub-stats">
@@ -521,218 +565,237 @@
 
 <main class="pub-main">
 
-  <div class="pub-filter" aria-label="Publication filters">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="published">Published</button>
-    <button class="filter-btn" data-filter="preprint">Preprints / Under evaluation</button>
-    <button class="filter-btn" data-filter="preparation">In preparation</button>
+  <div class="quick-links" aria-label="Publication sections">
+    <a href="#published">Peer-reviewed Publications</a>
+    <a href="#preprints">Preprints / Under Evaluation</a>
+    <a href="#preparation">Articles in Preparation</a>
   </div>
 
-  <section class="year-block" data-type="preprint">
-    <div class="year-label">
-      <strong>2026</strong>
-      <span>Under evaluation</span>
+  <section class="category-section" id="published">
+    <div class="category-header">
+      <h2>Peer-reviewed Publications</h2>
+      <p>
+        Published research articles and conference papers, grouped by publication year.
+      </p>
     </div>
 
-    <div class="year-publications">
+    <div class="year-block">
+      <div class="year-label">
+        <strong>2025</strong>
+        <span>Published</span>
+      </div>
 
-      <article class="compact-paper">
-        <div class="paper-topline">
-          <span class="paper-status">Submitted · 6 Feb 2026</span>
-          <span class="paper-field">Quantitative Biology · Populations and Evolution</span>
-        </div>
+      <div class="year-publications">
+        <article class="compact-paper">
+          <div class="paper-topline">
+            <span class="paper-status">Article</span>
+            <span class="paper-field">Mathematical Biology</span>
+          </div>
 
-        <h3>Deterministic and stochastic infection dynamics in a population subject to stress</h3>
+          <h3>Transmission of multiple pathogens across species</h3>
 
-        <p class="paper-authors">Clotilde Djuikem, Julien Arino</p>
+          <p class="paper-authors">C. Djuikem, J. Arino</p>
 
-        <div class="paper-actions">
-          <span class="paper-note">Under evaluation</span>
-        </div>
-      </article>
+          <p class="paper-journal">
+            <em>Bulletin of Mathematical Biology</em>, 87, 87, 2025.
+          </p>
 
-    </div>
-  </section>
-
-  <section class="year-block" data-type="published">
-    <div class="year-label">
-      <strong>2025</strong>
-      <span>Published</span>
-    </div>
-
-    <div class="year-publications">
-
-      <article class="compact-paper">
-        <div class="paper-topline">
-          <span class="paper-status">Article</span>
-          <span class="paper-field">Mathematical Biology</span>
-        </div>
-
-        <h3>Transmission of multiple pathogens across species</h3>
-
-        <p class="paper-authors">C. Djuikem, J. Arino</p>
-
-        <p class="paper-journal">
-          <em>Bulletin of Mathematical Biology</em>, 87, 87, 2025.
-        </p>
-
-        <div class="paper-actions">
-          <a class="pub-link" href="https://doi.org/10.1007/s11538-025-01469-3" target="_blank" rel="noopener noreferrer">DOI</a>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <section class="year-block" data-type="published preprint">
-    <div class="year-label">
-      <strong>2024</strong>
-      <span>Published + preprints</span>
+          <div class="paper-actions">
+            <a class="pub-link" href="https://doi.org/10.1007/s11538-025-01469-3" target="_blank" rel="noopener noreferrer">DOI</a>
+          </div>
+        </article>
+      </div>
     </div>
 
-    <div class="year-publications">
+    <div class="year-block">
+      <div class="year-label">
+        <strong>2024</strong>
+        <span>Published</span>
+      </div>
 
-      <article class="compact-paper">
-        <div class="paper-topline">
-          <span class="paper-status">Article</span>
-          <span class="paper-field">Plant disease modeling</span>
-        </div>
+      <div class="year-publications">
+        <article class="compact-paper">
+          <div class="paper-topline">
+            <span class="paper-status">Article</span>
+            <span class="paper-field">Plant disease modeling</span>
+          </div>
 
-        <h3>Impact of ontogenic changes on the dynamics of a fungal crop disease model motivated by coffee leaf rust</h3>
+          <h3>Impact of ontogenic changes on the dynamics of a fungal crop disease model motivated by coffee leaf rust</h3>
 
-        <p class="paper-authors">C. Djuikem, F. Grognard, S. Touzeau</p>
+          <p class="paper-authors">C. Djuikem, F. Grognard, S. Touzeau</p>
 
-        <p class="paper-journal">
-          <em>Journal of Mathematical Biology</em>, 88:30, 2024.
-        </p>
+          <p class="paper-journal">
+            <em>Journal of Mathematical Biology</em>, 88:30, 2024.
+          </p>
 
-        <div class="paper-actions">
-          <a class="pub-link" href="https://doi.org/10.1007/s00285-024-02053-4" target="_blank" rel="noopener noreferrer">DOI</a>
-        </div>
-      </article>
-
-      <article class="compact-paper">
-        <div class="paper-topline">
-          <span class="paper-status">Preprint · in revision</span>
-          <span class="paper-field">Stochastic model · Biocontrol</span>
-        </div>
-
-        <h3>Threshold-based impulsive biocontrol for coffee leaf rust using stochastic model</h3>
-
-        <p class="paper-authors">C. Djuikem, J. Arino</p>
-
-        <div class="paper-actions">
-          <a class="pub-link arxiv-link" href="https://doi.org/10.48550/arXiv.2504.01055" target="_blank" rel="noopener noreferrer">arXiv</a>
-          <span class="paper-note">In revision</span>
-        </div>
-      </article>
-
-      <article class="compact-paper">
-        <div class="paper-topline">
-          <span class="paper-status">Preprint · submitted</span>
-          <span class="paper-field">Crop disease modeling</span>
-        </div>
-
-        <h3>Dynamics and control of maize infection by Busseola fusca</h3>
-
-        <p class="paper-authors">C. Djuikem, J. Tchuanti</p>
-
-        <div class="paper-actions">
-          <a class="pub-link arxiv-link" href="https://doi.org/10.48550/arXiv.2503.16615" target="_blank" rel="noopener noreferrer">arXiv</a>
-          <span class="paper-note">Submitted</span>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <section class="year-block" data-type="published">
-    <div class="year-label">
-      <strong>2023</strong>
-      <span>Published</span>
+          <div class="paper-actions">
+            <a class="pub-link" href="https://doi.org/10.1007/s00285-024-02053-4" target="_blank" rel="noopener noreferrer">DOI</a>
+          </div>
+        </article>
+      </div>
     </div>
 
-    <div class="year-publications">
+    <div class="year-block">
+      <div class="year-label">
+        <strong>2023</strong>
+        <span>Published</span>
+      </div>
 
-      <article class="compact-paper">
-        <div class="paper-topline">
-          <span class="paper-status">Article</span>
-          <span class="paper-field">Impulsive systems · Biocontrol</span>
-        </div>
+      <div class="year-publications">
+        <article class="compact-paper">
+          <div class="paper-topline">
+            <span class="paper-status">Article</span>
+            <span class="paper-field">Impulsive systems · Biocontrol</span>
+          </div>
 
-        <h3>Impulsive modelling of rust dynamics and predator releases for biocontrol</h3>
+          <h3>Impulsive modelling of rust dynamics and predator releases for biocontrol</h3>
 
-        <p class="paper-authors">C. Djuikem, F. Grognard, S. Touzeau</p>
+          <p class="paper-authors">C. Djuikem, F. Grognard, S. Touzeau</p>
 
-        <p class="paper-journal">
-          <em>Mathematical Biosciences</em>, 356, 108968, 2023.
-        </p>
+          <p class="paper-journal">
+            <em>Mathematical Biosciences</em>, 356, 108968, 2023.
+          </p>
 
-        <div class="paper-actions">
-          <a class="pub-link" href="https://doi.org/10.1016/j.mbs.2023.108968" target="_blank" rel="noopener noreferrer">DOI</a>
-        </div>
-      </article>
+          <div class="paper-actions">
+            <a class="pub-link" href="https://doi.org/10.1016/j.mbs.2023.108968" target="_blank" rel="noopener noreferrer">DOI</a>
+          </div>
+        </article>
+      </div>
+    </div>
 
+    <div class="year-block">
+      <div class="year-label">
+        <strong>2021</strong>
+        <span>Published</span>
+      </div>
+
+      <div class="year-publications">
+        <article class="compact-paper">
+          <div class="paper-topline">
+            <span class="paper-status">Article</span>
+            <span class="paper-field">Coffee leaf rust</span>
+          </div>
+
+          <h3>Modelling coffee leaf rust dynamics to control its spread</h3>
+
+          <p class="paper-authors">C. Djuikem, F. Grognard, S. Bowong, S. Touzeau, R. Wafo</p>
+
+          <p class="paper-journal">
+            <em>Mathematical Modelling of Natural Phenomena</em>, 16, 26, 2021.
+          </p>
+
+          <div class="paper-actions">
+            <a class="pub-link" href="https://doi.org/10.1051/mmnp/2021018" target="_blank" rel="noopener noreferrer">DOI</a>
+          </div>
+        </article>
+
+        <article class="compact-paper">
+          <div class="paper-topline">
+            <span class="paper-status">Conference paper</span>
+            <span class="paper-field">Optimal control · Seasonality</span>
+          </div>
+
+          <h3>Mathematical modelling and optimal control of the seasonal coffee leaf rust propagation</h3>
+
+          <p class="paper-authors">C. Djuikem, A. G. Yabo, F. Grognard, S. Touzeau</p>
+
+          <p class="paper-journal">
+            <em>IFAC-PapersOnLine</em>, 54(5), 193–198, 2021.
+          </p>
+
+          <div class="paper-actions">
+            <a class="pub-link" href="https://doi.org/10.1016/j.ifacol.2021.08.497" target="_blank" rel="noopener noreferrer">DOI</a>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
-  <section class="year-block" data-type="published">
-    <div class="year-label">
-      <strong>2021</strong>
-      <span>Published</span>
+  <section class="category-section" id="preprints">
+    <div class="category-header">
+      <h2>Preprints / Under Evaluation</h2>
+      <p>
+        Preprints, submitted manuscripts, and manuscripts currently under evaluation. These are kept separate from published papers.
+      </p>
     </div>
 
-    <div class="year-publications">
+    <div class="year-block">
+      <div class="year-label">
+        <strong>2026</strong>
+        <span>Under evaluation</span>
+      </div>
 
-      <article class="compact-paper">
-        <div class="paper-topline">
-          <span class="paper-status">Article</span>
-          <span class="paper-field">Coffee leaf rust</span>
-        </div>
+      <div class="year-publications">
+        <article class="compact-paper">
+          <div class="paper-topline">
+            <span class="paper-status">Submitted · 6 Feb 2026</span>
+            <span class="paper-field">Quantitative Biology · Populations and Evolution</span>
+          </div>
 
-        <h3>Modelling coffee leaf rust dynamics to control its spread</h3>
+          <h3>Deterministic and stochastic infection dynamics in a population subject to stress</h3>
 
-        <p class="paper-authors">C. Djuikem, F. Grognard, S. Bowong, S. Touzeau, R. Wafo</p>
+          <p class="paper-authors">Clotilde Djuikem, Julien Arino</p>
 
-        <p class="paper-journal">
-          <em>Mathematical Modelling of Natural Phenomena</em>, 16, 26, 2021.
-        </p>
+          <div class="paper-actions">
+            <span class="paper-note">Under evaluation</span>
+          </div>
+        </article>
+      </div>
+    </div>
 
-        <div class="paper-actions">
-          <a class="pub-link" href="https://doi.org/10.1051/mmnp/2021018" target="_blank" rel="noopener noreferrer">DOI</a>
-        </div>
-      </article>
+    <div class="year-block">
+      <div class="year-label">
+        <strong>2024</strong>
+        <span>Preprints</span>
+      </div>
 
-      <article class="compact-paper">
-        <div class="paper-topline">
-          <span class="paper-status">Conference paper</span>
-          <span class="paper-field">Optimal control · Seasonality</span>
-        </div>
+      <div class="year-publications">
+        <article class="compact-paper">
+          <div class="paper-topline">
+            <span class="paper-status">Preprint · in revision</span>
+            <span class="paper-field">Stochastic model · Biocontrol</span>
+          </div>
 
-        <h3>Mathematical modelling and optimal control of the seasonal coffee leaf rust propagation</h3>
+          <h3>Threshold-based impulsive biocontrol for coffee leaf rust using stochastic model</h3>
 
-        <p class="paper-authors">C. Djuikem, A. G. Yabo, F. Grognard, S. Touzeau</p>
+          <p class="paper-authors">C. Djuikem, J. Arino</p>
 
-        <p class="paper-journal">
-          <em>IFAC-PapersOnLine</em>, 54(5), 193–198, 2021.
-        </p>
+          <div class="paper-actions">
+            <a class="pub-link arxiv-link" href="https://doi.org/10.48550/arXiv.2504.01055" target="_blank" rel="noopener noreferrer">arXiv</a>
+            <span class="paper-note">In revision</span>
+          </div>
+        </article>
 
-        <div class="paper-actions">
-          <a class="pub-link" href="https://doi.org/10.1016/j.ifacol.2021.08.497" target="_blank" rel="noopener noreferrer">DOI</a>
-        </div>
-      </article>
+        <article class="compact-paper">
+          <div class="paper-topline">
+            <span class="paper-status">Preprint · submitted</span>
+            <span class="paper-field">Crop disease modeling</span>
+          </div>
 
+          <h3>Dynamics and control of maize infection by Busseola fusca</h3>
+
+          <p class="paper-authors">C. Djuikem, J. Tchuanti</p>
+
+          <div class="paper-actions">
+            <a class="pub-link arxiv-link" href="https://doi.org/10.48550/arXiv.2503.16615" target="_blank" rel="noopener noreferrer">arXiv</a>
+            <span class="paper-note">Submitted</span>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
-  <section class="year-block" data-type="preparation">
-    <div class="year-label">
-      <strong>In progress</strong>
-      <span>Manuscripts</span>
+  <section class="category-section" id="preparation">
+    <div class="category-header">
+      <h2>Articles in Preparation</h2>
+      <p>
+        Current manuscripts and collaborative works under development.
+      </p>
     </div>
 
-    <div class="year-publications preparation-list">
+    <span class="in-progress-label">In progress</span>
 
+    <div class="preparation-grid">
       <article class="compact-paper">
         <h3>Modelling fungicide resistance in CLR using ODE and CTMC</h3>
         <p class="paper-authors">With J. Arino.</p>
@@ -757,14 +820,13 @@
         <h3>Virtual patients for age-of-infection modelling</h3>
         <p class="paper-authors">With J. Arino, M. Craig, K. Liao, and S. Portet.</p>
       </article>
-
     </div>
   </section>
 
 </main>
 
 <script>
-  const animatedItems = document.querySelectorAll(".year-block");
+  const sections = document.querySelectorAll(".category-section");
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -776,31 +838,8 @@
     threshold: 0.12
   });
 
-  animatedItems.forEach((item) => observer.observe(item));
-
-  const filterButtons = document.querySelectorAll(".filter-btn");
-  const yearBlocks = document.querySelectorAll(".year-block");
-
-  filterButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const filter = button.dataset.filter;
-
-      filterButtons.forEach((btn) => btn.classList.remove("active"));
-      button.classList.add("active");
-
-      yearBlocks.forEach((block) => {
-        const type = block.dataset.type || "";
-
-        if (filter === "all" || type.includes(filter)) {
-          block.classList.remove("hidden");
-        } else {
-          block.classList.add("hidden");
-        }
-      });
-    });
-  });
+  sections.forEach((section) => observer.observe(section));
 </script>
 
 </body>
 </html>
-
