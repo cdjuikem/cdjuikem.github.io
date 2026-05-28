@@ -2,64 +2,816 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Biography - Clotilde Djuikem</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Clotilde Djuikem | Applied Mathematics Researcher</title>
+
+  <meta name="description" content="Official website biography of Clotilde Djuikem, applied mathematics researcher. Research, publications, teaching, conferences, software, outreach, and contact information.">
+  <meta name="author" content="Clotilde Djuikem">
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://cdjuikem.github.io/about.html">
+
+  <meta property="og:title" content="Clotilde Djuikem | Applied Mathematics Researcher">
+  <meta property="og:description" content="Official biography of Clotilde Djuikem, applied mathematics researcher.">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://cdjuikem.github.io/about.html">
+  <meta property="og:image" content="https://cdjuikem.github.io/clotilde.jpeg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Clotilde Djuikem | Applied Mathematics Researcher">
+  <meta name="twitter:description" content="Official biography of Clotilde Djuikem, applied mathematics researcher.">
+  <meta name="twitter:image" content="https://cdjuikem.github.io/clotilde.jpeg">
+
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /*
+      Color direction:
+      - Bordeaux for identity and navigation
+      - Gold for borders, separators, and accents
+      - White/cream for a clean academic researcher website
+    */
+    :root {
+      --violet: #8B0000;
+      --violet-dark: #4A0000;
+      --lavender: #FFF9F3;
+      --gold: #C9A227;
+      --text: #2B2B2B;
+      --muted: #555555;
+      --white: #FFFFFF;
+      --soft-border: rgba(139, 0, 0, 0.16);
+      --shadow: 0 18px 45px rgba(74, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background:
+        linear-gradient(90deg, rgba(139, 0, 0, 0.10) 0%, transparent 8%, transparent 92%, rgba(201, 162, 39, 0.17) 100%),
+        radial-gradient(circle at top left, rgba(139, 0, 0, 0.10), transparent 32%),
+        radial-gradient(circle at top right, rgba(201, 162, 39, 0.16), transparent 28%),
+        linear-gradient(135deg, #ffffff 0%, #FFF9F3 55%, #ffffff 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(139, 0, 0, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139, 0, 0, 0.035) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 75%);
+      z-index: -2;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 12px;
+      background: var(--violet);
+      color: var(--white);
+      padding: 10px 14px;
+      border-radius: 10px;
+      z-index: 2000;
+    }
+
+    .skip-link:focus {
+      left: 12px;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 18px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--soft-border);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    }
+
+    nav a {
+      color: var(--violet-dark);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.94rem;
+      padding: 8px 12px;
+      border-radius: 999px;
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: var(--violet);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 520px;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 78px 24px 64px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      z-index: -1;
+      filter: blur(1px);
+    }
+
+    .hero::before {
+      width: 310px;
+      height: 310px;
+      right: -90px;
+      top: 50px;
+      background: radial-gradient(circle, rgba(218, 165, 32, 0.34), transparent 68%);
+      animation: floatGlow 7s ease-in-out infinite;
+    }
+
+    .hero::after {
+      width: 260px;
+      height: 260px;
+      left: -90px;
+      bottom: 8px;
+      background: radial-gradient(circle, rgba(139, 0, 0, 0.16), transparent 70%);
+      animation: floatGlow 8s ease-in-out infinite reverse;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--violet);
+      background: rgba(243, 234, 255, 0.85);
+      border: 1px solid var(--soft-border);
+      border-radius: 999px;
+      padding: 8px 15px;
+      font-size: 0.92rem;
+      font-weight: 800;
+      margin-bottom: 18px;
+      animation: fadeUp 0.75s ease both;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 0 6px rgba(218, 165, 32, 0.18);
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 7vw, 5.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      color: var(--violet-dark);
+      animation: fadeUp 0.85s ease both;
+      animation-delay: 0.08s;
+    }
+
+    .hero h2 {
+      margin: 20px 0 0;
+      font-size: clamp(1.18rem, 2.5vw, 1.75rem);
+      color: var(--gold);
+      font-weight: 800;
+      animation: fadeUp 0.85s ease both;
+      animation-delay: 0.16s;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+      animation: fadeUp 0.85s ease both;
+      animation-delay: 0.24s;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+      animation: fadeUp 0.85s ease both;
+      animation-delay: 0.32s;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      font-weight: 800;
+      padding: 12px 18px;
+      border-radius: 999px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .button.primary {
+      color: var(--white);
+      background: var(--violet);
+      box-shadow: 0 13px 26px rgba(139, 0, 0, 0.22);
+    }
+
+    .button.secondary {
+      color: var(--violet);
+      background: var(--white);
+      border: 1px solid var(--soft-border);
+    }
+
+    .button:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(74, 0, 0, 0.13);
+    }
+
+    .portrait-wrap {
+      position: relative;
+      justify-self: center;
+      animation: fadeInScale 0.95s ease both;
+      animation-delay: 0.25s;
+    }
+
+    .portrait-wrap::before {
+      content: "";
+      position: absolute;
+      inset: -18px;
+      border-radius: 36px;
+      background: linear-gradient(135deg, rgba(139, 0, 0, 0.14), rgba(218, 165, 32, 0.22));
+      transform: rotate(-4deg);
+      z-index: -1;
+      animation: slowRotate 8s ease-in-out infinite alternate;
+    }
+
+    .portrait-card {
+      width: min(325px, 82vw);
+      background: var(--white);
+      border: 1px solid rgba(139, 0, 0, 0.12);
+      border-radius: 30px;
+      padding: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .portrait-card img {
+      width: 100%;
+      display: block;
+      border-radius: 23px;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      background: var(--lavender);
+    }
+
+    .portrait-caption {
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-top: 12px;
+      font-weight: 600;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px 78px;
+    }
+
+    .section-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.93);
+      border: 1px solid var(--soft-border);
+      border-radius: 30px;
+      padding: 36px;
+      margin: 28px 0;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .section-card::before {
+      content: "";
+      position: absolute;
+      width: 5px;
+      inset: 0 auto 0 0;
+      background: linear-gradient(to bottom, var(--violet), var(--gold));
+    }
+
+    .section-card h2 {
+      color: var(--violet-dark);
+      font-size: clamp(1.5rem, 3vw, 2.15rem);
+      margin: 0 0 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-card h2::after {
+      content: "";
+      display: block;
+      width: 72px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 999px;
+      margin-top: 8px;
+    }
+
+    .section-card p {
+      color: var(--muted);
+      margin: 14px 0;
+    }
+
+    .section-card strong {
+      color: var(--violet-dark);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .mini-card {
+      background: linear-gradient(135deg, #ffffff, #fbf8ff);
+      border: 1px solid rgba(139, 0, 0, 0.12);
+      border-radius: 22px;
+      padding: 22px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      min-height: 155px;
+    }
+
+    .mini-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 16px 32px rgba(139, 0, 0, 0.10);
+    }
+
+    .mini-card .icon {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      margin-bottom: 12px;
+      color: var(--violet);
+      background: var(--lavender);
+      font-weight: 900;
+    }
+
+    .mini-card h3 {
+      color: var(--violet);
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+    }
+
+    .mini-card p {
+      margin: 0;
+      font-size: 0.98rem;
+    }
+
+    .timeline {
+      list-style: none;
+      padding: 0;
+      margin: 26px 0 0;
+      border-left: 3px solid rgba(139, 0, 0, 0.16);
+    }
+
+    .timeline li {
+      position: relative;
+      padding: 0 0 24px 28px;
+      color: var(--muted);
+    }
+
+    .timeline li::before {
+      content: "";
+      position: absolute;
+      left: -9px;
+      top: 8px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 6px rgba(218, 165, 32, 0.16);
+    }
+
+    .awards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      padding: 0;
+      margin: 24px 0 0;
+      list-style: none;
+    }
+
+    .awards li {
+      background: linear-gradient(135deg, #ffffff, #fbf7ff);
+      border: 1px solid rgba(139, 0, 0, 0.12);
+      border-radius: 18px;
+      padding: 18px;
+      font-weight: 700;
+      color: var(--violet-dark);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .awards li:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(139, 0, 0, 0.12);
+    }
+
+    .footer-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 32px;
+    }
+
+    a {
+      color: var(--violet);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.92) translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    @keyframes floatGlow {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-18px) scale(1.08);
+      }
+    }
+
+    @keyframes slowRotate {
+      from {
+        transform: rotate(-4deg) scale(1);
+      }
+      to {
+        transform: rotate(3deg) scale(1.02);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.25);
+        opacity: 0.75;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 52px;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .grid,
+      .awards {
+        grid-template-columns: 1fr;
+      }
+
+      .section-card {
+        padding: 28px 24px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      nav {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+      }
+
+      nav a {
+        white-space: nowrap;
+      }
+
+      .hero {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      main {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Clotilde Djuikem",
+    "url": "https://cdjuikem.github.io/",
+    "jobTitle": "Applied Mathematics Researcher",
+    "image": "https://cdjuikem.github.io/clotilde.jpeg",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "University of Manitoba"
+    },
+    "alumniOf": [
+      {
+        "@type": "Organization",
+        "name": "Université Côte d’Azur"
+      },
+      {
+        "@type": "Organization",
+        "name": "Inria"
+      },
+      {
+        "@type": "Organization",
+        "name": "University of Douala"
+      }
+    ],
+    "sameAs": [
+      "https://www.youtube.com/@tiohacademy"
+    ],
+    "knowsAbout": [
+      "Applied Mathematics",
+      "Mathematical Modeling",
+      "Dynamical Systems",
+      "Numerical Methods",
+      "Statistics",
+      "Biological Systems",
+      "Environmental Systems",
+      "STEM Outreach"
+    ]
+  }
+  </script>
 </head>
+
 <body>
 
-<nav>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<nav aria-label="Main navigation">
   <a href="index.html">Home</a>
-  <a href="about.html">Biography</a>
+  <a href="about.html" class="active">Biography</a>
   <a href="teaching.html">Teaching</a>
   <a href="publications.html">Publications</a>
   <a href="courses.html">Courses</a>
   <a href="outreach.html">Outreach</a>
-  <a href="videos.html">Vidéos</a>
-   <a href="conferences.html">Conferences</a>
+  <a href="videos.html">Videos</a>
+  <a href="conferences.html">Conferences</a>
   <a href="software.html">Software</a>
   <a href="contact.html">Contact</a>
 </nav>
 
-<section>
-  <h1>Biography</h1>
-  <!--<img src="clotilde.jpeg" alt="Clotilde Djuikem">-->
-  <p>
-    Clotilde Djuikem is a <strong>Postdoctoral Research Fellow</strong> in Applied Mathematics at the 
-    University of Manitoba (Canada). Her research focuses on multi-scale mathematical models, from 
-    intermediate filament assembly to the transmission of viral pathogens in fish populations under 
-    climate change scenarios. 
+<header class="hero">
+  <div>
+    <span class="eyebrow">Official Biography</span>
+
+    <h1>Clotilde Djuikem</h1>
+
+    <h2>Applied Mathematics Researcher</h2>
+
+    <p>
+      Clotilde Djuikem is an applied mathematics researcher whose work focuses on the development,
+      analysis, and numerical simulation of mathematical models for complex biological and environmental systems.
+    </p>
+
+    <div class="hero-actions">
+      <a class="button primary" href="publications.html">View Publications</a>
+      <a class="button secondary" href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <div class="portrait-wrap">
+    <div class="portrait-card">
+      <img src="clotilde.jpeg" alt="Portrait of Clotilde Djuikem, applied mathematics researcher">
+      <div class="portrait-caption">Research · Teaching · Modeling · Outreach</div>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <section class="section-card reveal">
+    <h2>About</h2>
+
+    <p>
+      <strong>Clotilde Djuikem</strong> is an applied mathematics researcher whose work connects
+      <strong>mathematical modeling</strong>, <strong>dynamical systems</strong>,
+      <strong>numerical methods</strong>, and applications to life sciences.
+    </p>
+
+    <p>
+      Her research focuses on building and analyzing models that help explain mechanisms of transmission,
+      control, stability, and long-term behavior in biological and environmental systems.
+    </p>
+
+    <p>
+      She earned her <strong>PhD in Applied Mathematics</strong> from Université Côte d’Azur and Inria in France,
+      where her doctoral research focused on the modelling and control of perennial plant pathogens.
+      She also holds a Master’s degree and a Bachelor’s degree in Applied Mathematics from the University of Douala.
+    </p>
+
+    <p>
+      Alongside her research, Clotilde has extensive teaching experience across Africa, Europe, and North America.
+      She has taught courses in calculus, statistics, mathematical modeling, and numerical methods, and has contributed
+      to the supervision and mentoring of undergraduate and graduate students.
+    </p>
+
+    <p>
+      She is also committed to science communication and inclusive STEM education. Through outreach activities,
+      public lectures, educational content, and community initiatives, she works to make mathematics more visible,
+      accessible, and connected to real-world challenges.
+    </p>
+  </section>
+
+  <section class="section-card reveal">
+    <h2>Research Interests</h2>
+
+    <div class="grid">
+      <article class="mini-card">
+        <div class="icon">∑</div>
+        <h3>Mathematical Modeling</h3>
+        <p>Models for biological, epidemiological, and environmental systems.</p>
+      </article>
+
+      <article class="mini-card">
+        <div class="icon">λ</div>
+        <h3>Dynamical Systems</h3>
+        <p>Stability, thresholds, control, and long-term behavior of complex systems.</p>
+      </article>
+
+      <article class="mini-card">
+        <div class="icon">⌁</div>
+        <h3>Numerical Methods</h3>
+        <p>Simulation, analysis, and computational exploration of mathematical models.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-card reveal">
+    <h2>Academic Path</h2>
+
+    <ul class="timeline">
+      <li>
+        <strong>Postdoctoral Research Fellow</strong><br>
+        Applied Mathematics, University of Manitoba, Canada.
+      </li>
+
+      <li>
+        <strong>PhD in Applied Mathematics</strong><br>
+        Université Côte d’Azur and Inria, France. Doctoral research on the modelling and control of perennial plant pathogens.
+      </li>
+
+      <li>
+        <strong>Master’s and Bachelor’s Degrees in Applied Mathematics</strong><br>
+        University of Douala.
+      </li>
+    </ul>
+  </section>
+
+  <section class="section-card reveal">
+    <h2>Teaching and Mentoring</h2>
+
+    <p>
+      Clotilde has taught across several academic systems and has experience in calculus, statistics,
+      mathematical modeling, and numerical methods. She also contributes to the training and mentoring
+      of undergraduate and graduate students.
+    </p>
+
+    <div class="grid">
+      <article class="mini-card">
+        <div class="icon">600+</div>
+        <h3>Teaching Experience</h3>
+        <p>More than 600 hours of teaching across multiple institutions and countries.</p>
+      </article>
+
+      <article class="mini-card">
+        <div class="icon">π</div>
+        <h3>Core Courses</h3>
+        <p>Calculus, statistics, mathematical modeling, and numerical methods.</p>
+      </article>
+
+      <article class="mini-card">
+        <div class="icon">↗</div>
+        <h3>Mentorship</h3>
+        <p>Support for undergraduate and graduate student research training.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-card reveal">
+    <h2>Awards and Recognition</h2>
+
+    <ul class="awards">
+      <li>Maud Menten Institute Research Accelerator Award, 2024 and 2025</li>
+      <li>EDIA Champion Pilot Program, Digital Research Alliance of Canada, 2024</li>
+      <li>Inria CORDI PhD Grant, France, 2019–2022</li>
+      <li>Presidential Excellence Grant, Cameroon, 2012–2018</li>
+    </ul>
+  </section>
+
+  <p class="footer-note">
+    Official website of Clotilde Djuikem · Applied Mathematics Researcher
   </p>
 
-  <p>
-    She earned her <strong>PhD in Applied Mathematics</strong> at Université Côte d’Azur and Inria 
-    (France), where her thesis investigated the modelling and control of perennial plant pathogens. 
-    She also holds a Master’s and a Bachelor’s degree in Applied Mathematics from the University of Douala. 
-  </p>
+</main>
 
-  <p>
-    Clotilde has over <strong>600 hours of teaching experience</strong> across Africa, Europe, and North America, 
-    covering courses in calculus, statistics, modeling, and numerical methods. She has also supervised and 
-    co-supervised students at the undergraduate and graduate levels. 
-  </p>
+<script>
+  const revealElements = document.querySelectorAll(".reveal");
 
-  <p>
-    She is an active science communicator, founder of 
-    <a href="https://www.youtube.com/@tiohacademy" target="_blank">Tioh Academy</a>, a YouTube channel with 
-    48,000+ subscribers and 2.7M+ views dedicated to math outreach. Recognized as an 
-    <strong>EDIA Champion 2024</strong> by the Digital Research Alliance of Canada, she regularly organizes 
-    roundtables and outreach initiatives promoting inclusion in STEM.
-  </p>
+  const revealOnScroll = () => {
+    const windowHeight = window.innerHeight;
 
-  <h2>Awards and Grants</h2>
-  <ul>
-    <li>Maud Menten Institute (MMI) Research Accelerator Award (2024, 2025)</li>
-    <li>EDIA Champion Pilot Program, Digital Research Alliance of Canada (2024)</li>
-    <li>Inria CORDI PhD Grant, France (2019–2022)</li>
-    <li>Presidential Excellence Grant, Cameroon (2012–2018)</li>
-  </ul>
+    revealElements.forEach((element) => {
+      const elementTop = element.getBoundingClientRect().top;
 
-</section>
+      if (elementTop < windowHeight - 80) {
+        element.classList.add("visible");
+      }
+    });
+  };
+
+  window.addEventListener("scroll", revealOnScroll);
+  window.addEventListener("load", revealOnScroll);
+</script>
 
 </body>
 </html>
-
