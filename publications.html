@@ -1,67 +1,385 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Publications - Clotilde Djuikem</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Publications | Clotilde Djuikem</title>
+
+  <meta name="description" content="Publications, preprints, and articles in preparation by Clotilde Djuikem, applied mathematics researcher.">
+
+  <meta name="author" content="Clotilde Djuikem">
+
+  <link rel="canonical" href="https://cdjuikem.github.io/publications.html">
+
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    .publications-hero {
+      max-width: 1100px;
+      margin: 50px auto 30px;
+      padding: 50px 34px;
+      background: #FFFFFF;
+      border: 1px solid rgba(139, 0, 0, 0.16);
+      border-left: 8px solid #C9A227;
+      border-radius: 26px;
+      box-shadow: 0 14px 35px rgba(74, 0, 0, 0.10);
+      text-align: center;
+    }
+
+    .publications-hero h1 {
+      color: #4A0000;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      margin: 0;
+      line-height: 1.05;
+    }
+
+    .publications-hero p {
+      max-width: 780px;
+      margin: 20px auto 0;
+      color: #444444;
+      font-size: 1.08rem;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      max-width: 900px;
+      margin: 30px auto 0;
+    }
+
+    .stat-card {
+      background: #FFF9F3;
+      border: 1px solid rgba(201, 162, 39, 0.45);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .stat-card strong {
+      display: block;
+      color: #8B0000;
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .stat-card span {
+      display: block;
+      margin-top: 8px;
+      color: #555555;
+      font-weight: 700;
+    }
+
+    .publication-section {
+      max-width: 1100px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      color: #4A0000;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      margin-bottom: 18px;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 72px;
+      height: 4px;
+      background: #C9A227;
+      border-radius: 20px;
+      margin-top: 10px;
+    }
+
+    .publication-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .publication-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(139, 0, 0, 0.16);
+      border-left: 6px solid #C9A227;
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 10px 26px rgba(74, 0, 0, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .publication-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 34px rgba(74, 0, 0, 0.13);
+    }
+
+    .publication-card h3 {
+      color: #4A0000;
+      margin: 0 0 10px;
+      font-size: 1.22rem;
+      line-height: 1.35;
+    }
+
+    .authors {
+      color: #555555;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .journal {
+      color: #444444;
+      margin-bottom: 16px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #FFF9F3;
+      color: #8B0000;
+      border: 1px solid rgba(201, 162, 39, 0.45);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .paper-link {
+      display: inline-block;
+      background: #8B0000;
+      color: #FFFFFF;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 700;
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+
+    .paper-link:hover {
+      background: #4A0000;
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+
+    .in-preparation-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .in-preparation-list li {
+      background: #FFFFFF;
+      border: 1px solid rgba(139, 0, 0, 0.16);
+      border-left: 6px solid #C9A227;
+      border-radius: 18px;
+      padding: 18px 20px;
+      color: #444444;
+      box-shadow: 0 8px 20px rgba(74, 0, 0, 0.07);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 800px) {
+      .stats-row {
+        grid-template-columns: 1fr;
+      }
+
+      .publications-hero {
+        margin: 30px 14px;
+        padding: 34px 22px;
+      }
+
+      .publication-section {
+        padding: 0 14px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
 <nav>
   <a href="index.html">Home</a>
   <a href="about.html">Biography</a>
   <a href="teaching.html">Teaching</a>
-  <a href="publications.html">Publications</a>
+  <a href="publications.html" class="active">Publications</a>
   <a href="outreach.html">Outreach</a>
-  <a href="videos.html">Vidéos</a>
-   <a href="conferences.html">Conferences</a>
+  <a href="videos.html">Videos</a>
+  <a href="conferences.html">Conferences</a>
   <a href="software.html">Software</a>
   <a href="contact.html">Contact</a>
 </nav>
 
-<section>
+<header class="publications-hero">
   <h1>Publications</h1>
-  <ol>
-    <li>C. Djuikem, J. Arino. <em>Transmission of multiple pathogens across species.</em> Bull. Math. Biol. 87, 87 (2025). 
-      <a href="https://doi.org/10.1007/s11538-025-01469-3" target="_blank">DOI</a>
-    </li>
-    <li>C. Djuikem, F. Grognard, S. Touzeau. <em>Impact of ontogenic changes on the dynamics of a fungal crop disease model motivated by coffee leaf rust.</em> J. Math. Biol. 88:30 (2024). 
-      <a href="https://doi.org/10.1007/s00285-024-02053-4" target="_blank">DOI</a>
-    </li>
-    <li>C. Djuikem, F. Grognard, S. Touzeau. <em>Impulsive modelling of rust dynamics and predator releases for biocontrol.</em> Math. Biosci. 356 (2023): 108968. 
-      <a href="https://doi.org/10.1016/j.mbs.2023.108968" target="_blank">DOI</a>
-    </li>
-    <li>C. Djuikem, F. Grognard, S. Bowong, S. Touzeau, R. Wafo. <em>Modelling coffee leaf rust dynamics to control its spread.</em> Math. Model. Nat. Phenom. 16 (2021): 26. 
-      <a href="https://doi.org/10.1051/mmnp/2021018" target="_blank">DOI</a>
-    </li>
-    <li>C. Djuikem, A.G. Yabo, F. Grognard, S. Touzeau. <em>Mathematical modelling and optimal control of the seasonal coffee leaf rust propagation.</em> IFAC-PapersOnLine 54(5):193–198 (2021). 
-      <a href="https://doi.org/10.1016/j.ifacol.2021.08.497" target="_blank">DOI</a>
-    </li>
-  </ol>
-</section>
 
-<section>
-  <h1>Preprints</h1>
-  <ol>
-    <li>C. Djuikem, J. Arino. <em>Threshold-based impulsive biocontrol for coffee leaf rust using stochastic model.</em> (2024, in revision). 
-      <a href="https://doi.org/10.48550/arXiv.2504.01055" target="_blank">arXiv</a>
-    </li>
-    <li>C. Djuikem, J. Tchuanti. <em>Dynamics and control of maize infection by Busseola fusca.</em> (2024, submitted). 
-      <a href="https://doi.org/10.48550/arXiv.2503.16615" target="_blank">arXiv</a>
-    </li>
-  </ol>
-</section>
+  <p>
+    This page lists peer-reviewed publications, preprints, and articles in preparation by
+    <strong>Clotilde Djuikem</strong>, with a focus on mathematical modeling, dynamical systems,
+    infectious disease dynamics, optimal control, and applications to biological systems.
+  </p>
 
-<section>
-  <h1>Articles in Preparation</h1>
-  <ul>
-    <li>Modelling fungicide resistance in CLR using ODE and CTMC (with J. Arino).</li>
-    <li>Modeling co-infection dynamics in Sockeye Salmon (with J. Arino).</li>
-    <li>Modeling Mpox with impulse vaccination (with C. Kenne).</li>
-    <li>Contribution of introduced cases to the spread of infection in a community (with J. Arino, A. Hurford).</li>
-    <li>Virtual patients for age-of-infection modelling (with J. Arino, M. Craig, K. Liao, S. Portet).</li>
-  </ul>
-</section>
+  <div class="stats-row">
+    <div class="stat-card">
+      <strong>5</strong>
+      <span>Peer-reviewed publications</span>
+    </div>
+
+    <div class="stat-card">
+      <strong>2</strong>
+      <span>Preprints</span>
+    </div>
+
+    <div class="stat-card">
+      <strong>5</strong>
+      <span>Articles in preparation</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="publication-section">
+    <h2 class="section-title">Peer-reviewed Publications</h2>
+
+    <div class="publication-grid">
+
+      <article class="publication-card">
+        <h3>Transmission of multiple pathogens across species</h3>
+        <div class="authors">C. Djuikem, J. Arino</div>
+        <div class="journal">
+          <em>Bulletin of Mathematical Biology</em>, 87, 87, 2025.
+        </div>
+        <div class="tag-row">
+          <span class="tag">2025</span>
+          <span class="tag">Mathematical biology</span>
+          <a class="paper-link" href="https://doi.org/10.1007/s11538-025-01469-3" target="_blank" rel="noopener noreferrer">DOI</a>
+        </div>
+      </article>
+
+      <article class="publication-card">
+        <h3>Impact of ontogenic changes on the dynamics of a fungal crop disease model motivated by coffee leaf rust</h3>
+        <div class="authors">C. Djuikem, F. Grognard, S. Touzeau</div>
+        <div class="journal">
+          <em>Journal of Mathematical Biology</em>, 88:30, 2024.
+        </div>
+        <div class="tag-row">
+          <span class="tag">2024</span>
+          <span class="tag">Plant disease modeling</span>
+          <a class="paper-link" href="https://doi.org/10.1007/s00285-024-02053-4" target="_blank" rel="noopener noreferrer">DOI</a>
+        </div>
+      </article>
+
+      <article class="publication-card">
+        <h3>Impulsive modelling of rust dynamics and predator releases for biocontrol</h3>
+        <div class="authors">C. Djuikem, F. Grognard, S. Touzeau</div>
+        <div class="journal">
+          <em>Mathematical Biosciences</em>, 356, 108968, 2023.
+        </div>
+        <div class="tag-row">
+          <span class="tag">2023</span>
+          <span class="tag">Impulsive systems</span>
+          <a class="paper-link" href="https://doi.org/10.1016/j.mbs.2023.108968" target="_blank" rel="noopener noreferrer">DOI</a>
+        </div>
+      </article>
+
+      <article class="publication-card">
+        <h3>Modelling coffee leaf rust dynamics to control its spread</h3>
+        <div class="authors">C. Djuikem, F. Grognard, S. Bowong, S. Touzeau, R. Wafo</div>
+        <div class="journal">
+          <em>Mathematical Modelling of Natural Phenomena</em>, 16, 26, 2021.
+        </div>
+        <div class="tag-row">
+          <span class="tag">2021</span>
+          <span class="tag">Coffee leaf rust</span>
+          <a class="paper-link" href="https://doi.org/10.1051/mmnp/2021018" target="_blank" rel="noopener noreferrer">DOI</a>
+        </div>
+      </article>
+
+      <article class="publication-card">
+        <h3>Mathematical modelling and optimal control of the seasonal coffee leaf rust propagation</h3>
+        <div class="authors">C. Djuikem, A. G. Yabo, F. Grognard, S. Touzeau</div>
+        <div class="journal">
+          <em>IFAC-PapersOnLine</em>, 54(5), 193–198, 2021.
+        </div>
+        <div class="tag-row">
+          <span class="tag">2021</span>
+          <span class="tag">Optimal control</span>
+          <a class="paper-link" href="https://doi.org/10.1016/j.ifacol.2021.08.497" target="_blank" rel="noopener noreferrer">DOI</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="publication-section">
+    <h2 class="section-title">Preprints</h2>
+
+    <div class="publication-grid">
+
+      <article class="publication-card">
+        <h3>Threshold-based impulsive biocontrol for coffee leaf rust using stochastic model</h3>
+        <div class="authors">C. Djuikem, J. Arino</div>
+        <div class="journal">
+          Preprint, 2024, in revision.
+        </div>
+        <div class="tag-row">
+          <span class="tag">Preprint</span>
+          <span class="tag">Stochastic model</span>
+          <a class="paper-link" href="https://doi.org/10.48550/arXiv.2504.01055" target="_blank" rel="noopener noreferrer">arXiv</a>
+        </div>
+      </article>
+
+      <article class="publication-card">
+        <h3>Dynamics and control of maize infection by Busseola fusca</h3>
+        <div class="authors">C. Djuikem, J. Tchuanti</div>
+        <div class="journal">
+          Preprint, 2024, submitted.
+        </div>
+        <div class="tag-row">
+          <span class="tag">Preprint</span>
+          <span class="tag">Crop disease modeling</span>
+          <a class="paper-link" href="https://doi.org/10.48550/arXiv.2503.16615" target="_blank" rel="noopener noreferrer">arXiv</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="publication-section">
+    <h2 class="section-title">Articles in Preparation</h2>
+
+    <ul class="in-preparation-list">
+      <li>Modelling fungicide resistance in CLR using ODE and CTMC, with J. Arino.</li>
+      <li>Modeling co-infection dynamics in Sockeye Salmon, with J. Arino.</li>
+      <li>Modeling Mpox with impulse vaccination, with C. Kenne.</li>
+      <li>Contribution of introduced cases to the spread of infection in a community, with J. Arino and A. Hurford.</li>
+      <li>Virtual patients for age-of-infection modelling, with J. Arino, M. Craig, K. Liao, and S. Portet.</li>
+    </ul>
+  </section>
+
+</main>
 
 </body>
 </html>
+```
