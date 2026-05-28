@@ -1,125 +1,794 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Courses - Clotilde Djuikem</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    nav { background: #333; padding: 10px; }
-    nav a { color: white; margin: 0 10px; text-decoration: none; }
-    nav a.active { font-weight: bold; color: #ff4444; }
-    section { padding: 30px; max-width: 1000px; margin: auto; }
-    h1 { text-align: center; color: darkred; margin-bottom: 40px; }
-    h2 { margin-top: 30px; color: #444; border-bottom: 2px solid darkred; padding-bottom: 5px; }
-    ul { list-style: none; padding-left: 20px; }
-    ul li { margin: 8px 0; }
-    a { color: darkred; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .course-block { margin-bottom: 40px; }
-    footer { background: #333; color: white; text-align: center; padding: 15px; margin-top: 40px; }
-  </style>
-</head>
-<body>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Navigation -->
-<nav>
+  <title>Courses | Clotilde Djuikem</title>
+
+  <meta name="description" content="University courses, training materials, lecture notes, and educational resources by Clotilde Djuikem, Postdoctoral Research Fellow in Applied Mathematics.">
+
+  <meta name="author" content="Clotilde Djuikem">
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://cdjuikem.github.io/courses.html">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --main-red: #8B0000;
+      --dark-red: #4A0000;
+      --gold: #C9A227;
+      --soft-bg: #FFF9F3;
+      --white: #FFFFFF;
+      --text: #222222;
+      --muted: #555555;
+      --border: rgba(139, 0, 0, 0.16);
+      --gold-border: rgba(201, 162, 39, 0.45);
+      --shadow: 0 14px 34px rgba(74, 0, 0, 0.09);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body.courses-page {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      line-height: 1.65;
+      background:
+        linear-gradient(90deg, rgba(139, 0, 0, 0.08) 0%, transparent 8%, transparent 92%, rgba(201, 162, 39, 0.14) 100%),
+        radial-gradient(circle at top left, rgba(139, 0, 0, 0.10), transparent 30%),
+        radial-gradient(circle at top right, rgba(201, 162, 39, 0.16), transparent 28%),
+        linear-gradient(135deg, #ffffff 0%, #FFF9F3 55%, #ffffff 100%);
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 18px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    }
+
+    nav a {
+      color: var(--dark-red);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.94rem;
+      padding: 8px 12px;
+      border-radius: 999px;
+      transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: var(--main-red);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    a:focus,
+    button:focus {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    .courses-hero {
+      position: relative;
+      max-width: 1100px;
+      margin: 46px auto 28px;
+      padding: 52px 34px;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--border);
+      border-left: 8px solid var(--gold);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .courses-hero::before {
+      content: "";
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      right: -75px;
+      top: -85px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201, 162, 39, 0.26), transparent 70%);
+      animation: floatOrb 7s ease-in-out infinite;
+    }
+
+    .courses-hero::after {
+      content: "";
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      left: -80px;
+      bottom: -90px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139, 0, 0, 0.16), transparent 70%);
+      animation: floatOrb 8s ease-in-out infinite reverse;
+    }
+
+    .courses-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+    }
+
+    .courses-kicker {
+      display: inline-block;
+      background: var(--soft-bg);
+      color: var(--main-red);
+      border: 1px solid var(--gold-border);
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 0.9rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .courses-hero h1 {
+      color: var(--dark-red);
+      font-size: clamp(2.3rem, 5.5vw, 4.5rem);
+      line-height: 1;
+      margin: 0;
+      letter-spacing: -0.04em;
+      animation: fadeUp 0.75s ease both;
+      animation-delay: 0.08s;
+    }
+
+    .courses-hero p {
+      color: #444444;
+      font-size: 1.04rem;
+      max-width: 820px;
+      margin: 20px 0 0;
+      animation: fadeUp 0.75s ease both;
+      animation-delay: 0.16s;
+    }
+
+    .courses-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+      animation: fadeUp 0.75s ease both;
+      animation-delay: 0.24s;
+    }
+
+    .course-button,
+    .resource-link {
+      display: inline-block;
+      background: var(--main-red);
+      color: #FFFFFF !important;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 0.86rem;
+      font-weight: 800;
+      box-shadow: 0 10px 22px rgba(139, 0, 0, 0.16);
+      transition: transform 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .course-button:hover,
+    .resource-link:hover {
+      background: var(--dark-red);
+      color: #FFFFFF !important;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(74, 0, 0, 0.16);
+    }
+
+    .course-button.secondary {
+      background: var(--gold);
+      color: var(--dark-red) !important;
+    }
+
+    .course-button.secondary:hover {
+      background: #B8901F;
+      color: var(--dark-red) !important;
+    }
+
+    .courses-main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 22px 70px;
+    }
+
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 24px auto 34px;
+    }
+
+    .quick-links a {
+      border: 1px solid var(--gold-border);
+      background: #FFFFFF;
+      color: var(--main-red);
+      text-decoration: none;
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 800;
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .quick-links a:hover {
+      background: var(--main-red);
+      color: #FFFFFF;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 22px rgba(139, 0, 0, 0.18);
+    }
+
+    .category-section {
+      margin: 42px 0;
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .category-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .category-header {
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--border);
+      border-left: 8px solid var(--gold);
+      border-radius: 24px;
+      padding: 24px;
+      margin-bottom: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .category-header h2 {
+      color: var(--dark-red);
+      font-size: clamp(1.65rem, 3vw, 2.3rem);
+      margin: 0;
+      line-height: 1.15;
+    }
+
+    .category-header h2::after {
+      content: "";
+      display: block;
+      width: 72px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 20px;
+      margin-top: 10px;
+    }
+
+    .category-header p {
+      color: var(--muted);
+      margin: 16px 0 0;
+      max-width: 780px;
+      font-size: 0.98rem;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .course-card {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--gold);
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: 0 8px 22px rgba(74, 0, 0, 0.07);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+      border-left-color: var(--main-red);
+      box-shadow: 0 14px 30px rgba(74, 0, 0, 0.13);
+    }
+
+    .course-topline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .course-tag,
+    .course-year,
+    .course-place {
+      display: inline-block;
+      background: var(--soft-bg);
+      color: var(--main-red);
+      border: 1px solid var(--gold-border);
+      border-radius: 999px;
+      padding: 4px 9px;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .course-place {
+      background: #FFFFFF;
+      color: var(--dark-red);
+    }
+
+    .course-card h3 {
+      color: var(--dark-red);
+      font-size: 1.12rem;
+      line-height: 1.3;
+      margin: 0 0 9px;
+    }
+
+    .course-card p {
+      color: var(--muted);
+      margin: 0 0 14px;
+      font-size: 0.94rem;
+    }
+
+    .resource-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 9px;
+      margin-top: 14px;
+    }
+
+    .resource-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: var(--soft-bg);
+      border: 1px solid var(--gold-border);
+      border-radius: 16px;
+      padding: 11px 12px;
+    }
+
+    .resource-title {
+      color: var(--dark-red);
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .empty-note {
+      background: var(--soft-bg);
+      color: var(--muted);
+      border: 1px dashed var(--gold-border);
+      border-radius: 16px;
+      padding: 12px 14px;
+      margin-top: 14px;
+      font-size: 0.92rem;
+    }
+
+    .training-card {
+      background: var(--dark-red);
+      color: #FFFFFF;
+      border-radius: 26px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--gold-border);
+    }
+
+    .training-card h3 {
+      color: #FFFFFF;
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+    }
+
+    .training-card p {
+      color: #F8EFD7;
+      margin: 0 0 16px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatOrb {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+      }
+
+      50% {
+        transform: translateY(18px) scale(1.08);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .courses-hero {
+        margin: 28px 14px;
+        padding: 36px 22px;
+      }
+
+      .course-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      nav {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+      }
+
+      nav a {
+        white-space: nowrap;
+      }
+
+      .courses-main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .resource-item {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .category-section {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+
+</head>
+
+<body class="courses-page">
+
+<nav aria-label="Main navigation">
   <a href="index.html">Home</a>
   <a href="about.html">Biography</a>
   <a href="publications.html">Publications</a>
-  <a href="teaching.html" class="active">>Teaching</a>
+  <a href="teaching.html">Teaching</a>
+  <a href="courses.html" class="active">Courses</a>
   <a href="conferences.html">Conferences</a>
   <a href="outreach.html">Outreach</a>
-  <a href="videos.html">Vidéos</a>
+  <a href="videos.html">Videos</a>
 </nav>
 
-<section>
-  <h1>University & Training Courses</h1>
+<header class="courses-hero">
+  <div class="courses-hero-content">
+    <span class="courses-kicker">Courses & Learning Resources</span>
 
-  <!-- Section 1 -->
-  <h2>📘 Instructor</h2>
 
-  <div class="course-block">
-    <h3>MATH1700 – Calculus 2 (University of Manitoba, 2024)</h3>
-    <ul>
-      <li><a href="pdfs/Integration.pdf" target="_blank">Section 1 – Integration</a></li>
-      <li><a href="pdfs/Applications_of_Integration.pdf" target="_blank">Section 2 – Applications of Integration.pdf</a></li>
-      <li><a href="pdfs/Techniques_of_Integration.pdf" target="_blank">Section 3 - Techniques of Integration Exam</a></li>
-      <li><a href="pdfs/Parametric_Equations_and_Polar_Coordinate.pdf" target="_blank">Section 7 - Parametric Equations and Polar Coordinate</a></li>
-    </ul>
+<h1>University & Training Courses</h1>
+
+<p>
+  This page gathers selected teaching materials, lecture notes, course sections, and training resources
+  prepared or used by <strong>Clotilde Djuikem</strong> in university courses and professional training contexts.
+</p>
+
+<div class="courses-actions">
+  <a class="course-button" href="#instructor">Instructor Courses</a>
+  <a class="course-button secondary" href="#resources">Course Resources</a>
+  <a class="course-button" href="#training">Training Outside University</a>
+</div>
+
+
+  </div>
+</header>
+
+<main class="courses-main">
+
+  <div class="quick-links" aria-label="Course sections">
+    <a href="#instructor">Instructor</a>
+    <a href="#teaching-assistant">Teaching Assistant</a>
+    <a href="#training">Training</a>
   </div>
 
-  <div class="course-block">
-    <h3>MATH1500 – Introduction to Calculus (University of Manitoba, 2024)</h3>
-    <ul>
-      <li><a href="pdfs/MATH-1500/Introduction_to_Functions.pdf" target="_blank">Section 1 – Introduction to Functions</a></li>
-      <li><a href="pdfs/MATH-1500/Limits.pdf" target="_blank">Section 2 – Limits</a></li>
-      <li><a href="pdfs/MATH-1500/Derivatives.pdf" target="_blank">Section 3 – Derivatives</a></li>
-      <li><a href="pdfs/MATH-1500/Applications_of_Derivatives.pdf" target="_blank">Section 4 – Applications of Derivatives</a></li>
-    </ul>
-  </div>
+  <section class="category-section" id="instructor">
+    <div class="category-header">
+      <h2>Instructor Courses</h2>
+      <p>
+        Courses taught as instructor, with selected downloadable materials when available.
+      </p>
+    </div>
 
-  <div class="course-block">
-    <h3>Numerical Methods for Engineers (Polytech Nice, 2022–2023)</h3>
-    <!--
-    <ul>
-      <li><a href="pdfs/numerical_methods_intro.pdf" target="_blank">Lecture Notes</a></li>
-      <li><a href="pdfs/numerical_methods_exercises.pdf" target="_blank">Exercises</a></li>
-    </ul> -->
-  </div> 
 
-  <div class="course-block">
-    <h3>Probability and Statistics (Institut Universitaire de la Côte, 2018–2019)</h3>
-    <!--
-    <ul>
-      <li><a href="pdfs/probability_notes.pdf" target="_blank">Course Notes</a></li>
-      <li><a href="pdfs/probability_exercises.pdf" target="_blank">Exercises</a></li>
-    </ul>-->
-  </div>
+<div class="course-grid">
 
-  <!-- Section 2 -->
-  <h2>👩‍🏫 Teaching Assistant</h2>
+  <article class="course-card" id="resources">
+    <div class="course-topline">
+      <span class="course-tag">Instructor</span>
+      <span class="course-year">2024</span>
+      <span class="course-place">University of Manitoba</span>
+    </div>
 
-  <div class="course-block">
-    <h3>Université Côte d’Azur (France, 2020–2023)</h3>
-    <ul>
-      <li><a href="pdfs/stats_r.pdf" target="_blank">Statistics with R (Master)</a></li>
-      <li><a href="pdfs/stochastic_processes.pdf" target="_blank">Stochastic Processes for Engineers (Master)</a></li>
-      <li><a href="pdfs/modeling_intro.pdf" target="_blank">Introduction to Mathematical and Numerical Modeling (Bachelor)</a></li>
-      <li><a href="pdfs/algebra4.pdf" target="_blank">Algebra 4 – Bilinear & Quadratic Forms</a></li>
-    </ul>
-  </div>
+    <h3>MATH1700 — Calculus 2</h3>
 
-  <div class="course-block">
-    <h3>University of Douala (Cameroon, 2018)</h3>
-    <ul>
-      <li><a href="pdfs/scientific_computing.pdf" target="_blank">Scientific Computing</a></li>
-      <li><a href="pdfs/linear_programming.pdf" target="_blank">Linear Programming</a></li>
-    </ul>
-  </div>
+    <p>
+      Selected sections and PDF resources for Calculus 2.
+    </p>
 
-  <!-- Section 3 -->
-  <h2>🌍 Training Outside University</h2>
+    <div class="resource-list">
+      <div class="resource-item">
+        <span class="resource-title">Section 1 — Integration</span>
+        <a class="resource-link" href="pdfs/Integration.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+      </div>
 
-  <div class="course-block">
-    <h3>OPENGRAD STAT ECO TOGO (2024–2025)</h3>
-    <ul>
-      <li><a href="pdfs/financial_engineering.pdf" target="_blank">Financial Engineering & Risk Management</a></li>
-    </ul>
-  </div>
+      <div class="resource-item">
+        <span class="resource-title">Section 2 — Applications of Integration</span>
+        <a class="resource-link" href="pdfs/Applications_of_Integration.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+      </div>
 
-  <div class="course-block">
-    <h3>Capacity-Building Workshop (PCA–CEA–ONACC, Cameroon, 2021)</h3>
-    <ul>
-      <li><a href="pdfs/climate_modeling_guide.pdf" target="_blank">Methodological Guide on Climate Modeling</a></li>
-    </ul>
-  </div>
+      <div class="resource-item">
+        <span class="resource-title">Section 3 — Techniques of Integration</span>
+        <a class="resource-link" href="pdfs/Techniques_of_Integration.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+      </div>
 
-</section>
+      <div class="resource-item">
+        <span class="resource-title">Section 7 — Parametric Equations and Polar Coordinates</span>
+        <a class="resource-link" href="pdfs/Parametric_Equations_and_Polar_Coordinate.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="course-card">
+    <div class="course-topline">
+      <span class="course-tag">Instructor</span>
+      <span class="course-year">2024</span>
+      <span class="course-place">University of Manitoba</span>
+    </div>
+
+    <h3>MATH1500 — Introduction to Calculus</h3>
+
+    <p>
+      Selected sections and PDF resources for introductory calculus.
+    </p>
+
+    <div class="resource-list">
+      <div class="resource-item">
+        <span class="resource-title">Section 1 — Introduction to Functions</span>
+        <a class="resource-link" href="pdfs/MATH-1500/Introduction_to_Functions.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+      </div>
+
+      <div class="resource-item">
+        <span class="resource-title">Section 2 — Limits</span>
+        <a class="resource-link" href="pdfs/MATH-1500/Limits.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+      </div>
+
+      <div class="resource-item">
+        <span class="resource-title">Section 3 — Derivatives</span>
+        <a class="resource-link" href="pdfs/MATH-1500/Derivatives.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+      </div>
+
+      <div class="resource-item">
+        <span class="resource-title">Section 4 — Applications of Derivatives</span>
+        <a class="resource-link" href="pdfs/MATH-1500/Applications_of_Derivatives.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="course-card">
+    <div class="course-topline">
+      <span class="course-tag">Instructor</span>
+      <span class="course-year">2022–2023</span>
+      <span class="course-place">Polytech Nice</span>
+    </div>
+
+    <h3>Numerical Methods for Engineers</h3>
+
+    <p>
+      Course taught at Polytech Nice, focused on numerical methods and computational tools for engineering students.
+    </p>
+
+    <div class="empty-note">
+      Course materials may be added later.
+    </div>
+  </article>
+
+  <article class="course-card">
+    <div class="course-topline">
+      <span class="course-tag">Instructor</span>
+      <span class="course-year">2018–2019</span>
+      <span class="course-place">Institut Universitaire de la Côte</span>
+    </div>
+
+    <h3>Probability and Statistics</h3>
+
+    <p>
+      Course taught in probability and statistics, including foundational tools for data analysis and modeling.
+    </p>
+
+    <div class="empty-note">
+      Course materials may be added later.
+    </div>
+  </article>
+
+</div>
+
+
+  </section>
+
+  <section class="category-section" id="teaching-assistant">
+    <div class="category-header">
+      <h2>Teaching Assistant Experience</h2>
+      <p>
+        Courses supported as teaching assistant, including tutorials, exercises, labs, and student support.
+      </p>
+    </div>
+
+
+<div class="course-grid">
+
+  <article class="course-card">
+    <div class="course-topline">
+      <span class="course-tag">Teaching Assistant</span>
+      <span class="course-year">2020–2023</span>
+      <span class="course-place">Université Côte d’Azur / Polytech Nice</span>
+    </div>
+
+    <h3>Mathematics and Modeling Courses</h3>
+
+    <p>
+      Teaching assistant work in statistics, stochastic processes, mathematical modeling, numerical modeling, and algebra.
+    </p>
+
+    <div class="resource-list">
+      <div class="resource-item">
+        <span class="resource-title">Statistics with R</span>
+        <a class="resource-link" href="pdfs/stats_r.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+      </div>
+
+      <div class="resource-item">
+        <span class="resource-title">Stochastic Processes for Engineers</span>
+        <a class="resource-link" href="pdfs/stochastic_processes.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+      </div>
+
+      <div class="resource-item">
+        <span class="resource-title">Introduction to Mathematical and Numerical Modeling</span>
+        <a class="resource-link" href="pdfs/modeling_intro.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+      </div>
+
+      <div class="resource-item">
+        <span class="resource-title">Algebra 4 — Bilinear and Quadratic Forms</span>
+        <a class="resource-link" href="pdfs/algebra4.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="course-card">
+    <div class="course-topline">
+      <span class="course-tag">Teaching Assistant</span>
+      <span class="course-year">2018</span>
+      <span class="course-place">University of Douala</span>
+    </div>
+
+    <h3>Scientific Computing and Linear Programming</h3>
+
+    <p>
+      Teaching assistant work in scientific computing and linear programming.
+    </p>
+
+    <div class="resource-list">
+      <div class="resource-item">
+        <span class="resource-title">Scientific Computing</span>
+        <a class="resource-link" href="pdfs/scientific_computing.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+      </div>
+
+      <div class="resource-item">
+        <span class="resource-title">Linear Programming</span>
+        <a class="resource-link" href="pdfs/linear_programming.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+
+  </section>
+
+  <section class="category-section" id="training">
+    <div class="category-header">
+      <h2>Training Outside University</h2>
+      <p>
+        Professional and capacity-building training activities outside the standard university course setting.
+      </p>
+    </div>
+
+
+<div class="course-grid">
+
+  <article class="training-card">
+    <div class="course-topline">
+      <span class="course-tag">Professional training</span>
+      <span class="course-year">2024–2025</span>
+    </div>
+
+    <h3>OPENGRAD STAT ECO TOGO</h3>
+
+    <p>
+      Professional program in Financial Engineering and Risk Management.
+    </p>
+
+    <a class="course-button secondary" href="pdfs/financial_engineering.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+  </article>
+
+  <article class="training-card">
+    <div class="course-topline">
+      <span class="course-tag">Capacity-building workshop</span>
+      <span class="course-year">2021</span>
+    </div>
+
+    <h3>PCA–CEA–ONACC Workshop, Cameroon</h3>
+
+    <p>
+      Methodological guide on climate modeling.
+    </p>
+
+    <a class="course-button secondary" href="pdfs/climate_modeling_guide.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+  </article>
+
+</div>
+
+
+  </section>
+
+</main>
 
 <footer>
-  <p>&copy; 2025 Clotilde Djuikem</p>
+  <p>&copy; 2026 Clotilde Djuikem · Courses and learning resources</p>
 </footer>
+
+<script>
+  const sections = document.querySelectorAll(".category-section");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, {
+    threshold: 0.12
+  });
+
+  sections.forEach((section) => observer.observe(section));
+</script>
 
 </body>
 </html>
